@@ -15,7 +15,7 @@ func addScrap():
 	
 
 func howManyLeft():
-    return 5 - scraps.size()
+	return 5 - scraps.size()
 
 func repair():
-    scraps.clear()
+	scraps.clear()

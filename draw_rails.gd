@@ -39,6 +39,7 @@ func _ready():
 		curve = path.get_curve()
 		curve.add_point(map.map_to_world(Vector2(k,j)))
 		map.set_cell(k,j,last_tile)	  
+		createEnvironment(k,j)		
 		if (last_tile == Rail.forward):
 			j = j - 1
 		elif(last_tile == Rail.left_forward || last_tile == Rail.right_forward):
@@ -52,10 +53,17 @@ func _ready():
 		else:
 			print("fail")
 		last_tile = nextTile(last_tile)
-			
 	pass	
+	
  # Replace with function body.
 
+func createEnvironment(k, j):
+	print("Hallo")
+	for i in range(50):
+		if(map.get_cell(k+i,j) == -1):
+			map.set_cell(k + i, j, 6)
+		if(map.get_cell(k-i,j) == -1):
+			map.set_cell(k - i,j,6)
 var direction
 func nextTile(tile):
 	match tile:

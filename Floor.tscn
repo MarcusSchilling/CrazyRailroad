@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/tiless.tres" type="TileSet" id=1]
 [ext_resource path="res://draw_rails.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Kenney/Isometric/tile_E.png" type="Texture" id=3]
 [ext_resource path="res://Zug.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Curve2D" id=2]
@@ -9,9 +10,21 @@ _data = {
 "points": PoolVector2Array(  )
 }
 
+[sub_resource type="TileSet" id=4]
+0/name = "tile_E.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 192, 256, 128, 96 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+
 [sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 579.065, 262.647, 0, 0, 0, 0, 669.187, 308.375, 0, 0, 0, 0, 686.545, 323.589, 0, 0, 0, 0, 677.719, 342.503, 0, 0, 0, 0, 596.794, 384.531, 0, 0, 0, 0, 602.069, 396.539, 0, 0, 0, 0, 617.426, 399.952, 0, 0, 0, 0, 625.603, 418.88, 0, 0, 0, 0, 592.399, 451.144, 0, 0, 0, 0, 549.17, 468.777, 0, 0, 0, 0, 517.015, 472.066, 0, 0, 0, 0, 487.171, 475.033, 0, 0, 0, 0, 457.024, 461.382, 0, 0, 0, 0, 420.621, 438.63, 0, 0, 0, 0, 405.104, 421.096, 0, 0, 0, 0, 430.86, 393.695, 0, 0, 0, 0, 468.765, 382.098, 0, 0, 0, 0, 496, 370.226, 0, 0, 0, 0, 491.531, 356.83, 0, 0, 0, 0, 486.224, 347.879, 0, 0, 0, 0, 470.162, 345.784, 0, 0, 0, 0, 466.046, 329.129, 0, 0, 0, 0, 474.352, 312.963, 0, 0, 0, 0, 579.065, 262.647 )
+"points": PoolVector2Array( 0, 0, 0, 0, 579.065, 262.647, 0, 0, 0, 0, 686.545, 323.589, 0, 0, 0, 0, 596.794, 384.531, 0, 0, 0, 0, 625.603, 418.88, 0, 0, 0, 0, 517.015, 472.066, 0, 0, 0, 0, 405.104, 421.096, 0, 0, 0, 0, 491.531, 356.83, 0, 0, 0, 0, 466.046, 329.129, 0, 0, 0, 0, 579.065, 262.647 )
 }
 
 [node name="Floor" type="Node2D"]
@@ -22,8 +35,8 @@ position = Vector2( 0, 5 )
 mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 64 )
+cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( 131080, 6, 0, 196616, 6, 0 )
 
 [node name="PathToFollow" type="Path2D" parent="Rails"]
 position = Vector2( 0, -4 )
@@ -38,7 +51,16 @@ rotate = false
 position = Vector2( 20.8654, 36.6838 )
 rotation = -0.481198
 
+[node name="environment" type="TileMap" parent="."]
+visible = false
+mode = 1
+tile_set = SubResource( 4 )
+cell_size = Vector2( 128, 64 )
+cell_y_sort = true
+format = 1
+
 [node name="deko" type="TileMap" parent="."]
+visible = false
 mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 64 )
