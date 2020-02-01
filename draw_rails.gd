@@ -26,9 +26,8 @@ func _ready():
 	
 	var width =15
 	var height = 12
-	var n_tiles = 1000
+	var n_tiles = 2000
 	var last_tile = Rail.forward
-	map.set_cell(5,5,Rail.right_forward)
 	for s in range(n_tiles):
 		print(Rail.keys()[last_tile])
 		map.set_cell(k,j,last_tile)	  
@@ -49,6 +48,7 @@ func _ready():
 	pass	
  # Replace with function body.
 
+var direction
 func nextTile(tile):
 	match tile:
 		Rail.right_forward:
@@ -71,7 +71,10 @@ func nextTile(tile):
 				if (k_direction == 1):
 					return Rail.left_forward
 				else:
-					return Rail.left_right
+					direction = _returnRandom([Rail.left_right,Rail.right_forward]) 
+					if (direction == Rail.left_forward):
+						k_direction = 0
+					return direction
 			return _returnRandom([Rail.left_forward, Rail.left_right])
 
 func _returnRandom(tiles):
