@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Tileset/tiless.tres" type="TileSet" id=1]
+[ext_resource path="res://draw_rails.gd" type="Script" id=2]
 [ext_resource path="res://Zug.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Curve2D" id=1]
@@ -9,8 +10,10 @@ _data = {
 }
 
 [node name="Floor" type="Node2D"]
+script = ExtResource( 2 )
 
-[node name="Floor" type="TileMap" parent="."]
+[node name="Rails" type="TileMap" parent="."]
+position = Vector2( 0, 4 )
 mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 64 )
