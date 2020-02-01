@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://MainMenue.gd" type="Script" id=1]
+[ext_resource path="res://Assets/uipack_fixed/cool_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/uipack_fixed/PNG/blue_button02.png" type="Texture" id=3]
+[ext_resource path="res://Assets/uipack_fixed/Font/kenvector_future_thin.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 4 )
+
+[node name="MainMenue" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 272.0
+margin_top = 160.0
+margin_right = 752.0
+margin_bottom = 440.0
+custom_constants/separation = 0
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 480.0
+margin_bottom = 100.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+margin_right = 480.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+custom_fonts/font = ExtResource( 2 )
+text = "Crazy RailRoad"
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 100.0
+margin_right = 480.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 0, 60 )
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 145.0
+margin_top = 5.0
+margin_right = 335.0
+margin_bottom = 54.0
+texture_normal = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer/TextureButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -12.0
+margin_right = 80.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 1 )
+text = "Start new game"
+align = 1
+valign = 1
+
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 160.0
+margin_right = 480.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 0, 60 )
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer3"]
+margin_left = 145.0
+margin_top = 5.0
+margin_right = 335.0
+margin_bottom = 54.0
+texture_normal = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer3/TextureButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -12.0
+margin_right = 80.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 1 )
+text = "Settings"
+align = 1
+valign = 1
+
+[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 220.0
+margin_right = 480.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 0, 60 )
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer4"]
+margin_left = 145.0
+margin_top = 5.0
+margin_right = 335.0
+margin_bottom = 54.0
+texture_normal = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer4/TextureButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -12.0
+margin_right = 80.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 1 )
+text = "About"
+align = 1
+valign = 1
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
