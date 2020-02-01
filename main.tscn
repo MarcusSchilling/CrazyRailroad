@@ -16,7 +16,7 @@ position = Vector2( 12, 0 )
 z_as_relative = false
 
 [node name="tool" parent="." instance=ExtResource( 2 )]
-position = Vector2( 773.962, 333.167 )
+position = Vector2( 788.002, 326.001 )
 
 [node name="tool2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 728.913, 365.618 )
@@ -32,6 +32,3 @@ position = Vector2( 331.001, 374.001 )
 
 [node name="player" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 422.511, 375.802 )
-anchor_right = 1.0
-margin_top = 20.0
-margin_right = -20.0
