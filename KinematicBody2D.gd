@@ -34,6 +34,8 @@ func _physics_process(_delta):
 			motion += Vector2(1, -1)
 		elif Input.is_action_pressed("ui_down"):
 			motion += Vector2(1, 1)
+	#elif Input.is_action_pressed("ui_select"):
+		#get_node("/root/main/GUI").addScrap()
 		
 	else:
 		$AnimatedSprite.playing = false
