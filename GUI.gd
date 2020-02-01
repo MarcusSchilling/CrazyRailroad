@@ -13,3 +13,7 @@ func addScrap():
 	scraps.push_back(true);
 	get_node("HBoxContainer").add_child(ScrapUI.instance());
 	
+
+func howManyLeft():
+    return 5 - scraps.size()
+    
