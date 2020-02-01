@@ -16,6 +16,8 @@ enum Rail {
 var k_direction = 1
 var k = 4
 var j = 0
+var path
+var curve
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,13 +25,19 @@ func _ready():
 	map= get_node("Rails")
 	# largura e altura em tiles 
 	# ladri = numero de tiles diferentes do tile set
+	path = get_node("Rails/PathToFollow")
+	curve = path.get_curve()
 	
+	print(curve.get_point_count())		
+	path.set_curve(curve)
 	var width =15
 	var height = 12
-	var n_tiles = 2000
+	var n_tiles = 1000
 	var last_tile = Rail.forward
 	for s in range(n_tiles):
 		print(Rail.keys()[last_tile])
+		curve = path.get_curve()
+		curve.add_point(map.map_to_world(Vector2(k,j)))
 		map.set_cell(k,j,last_tile)	  
 		if (last_tile == Rail.forward):
 			j = j - 1

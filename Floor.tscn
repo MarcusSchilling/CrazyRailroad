@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Tileset/tiless.tres" type="TileSet" id=1]
+[ext_resource path="res://Assets/tiless.tres" type="TileSet" id=1]
 [ext_resource path="res://draw_rails.gd" type="Script" id=2]
 [ext_resource path="res://Zug.tscn" type="PackedScene" id=9]
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[sub_resource type="Curve2D" id=3]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 579.065, 262.647, 0, 0, 0, 0, 686.545, 323.589, 0, 0, 0, 0, 596.794, 384.531, 0, 0, 0, 0, 625.603, 418.88, 0, 0, 0, 0, 517.015, 472.066, 0, 0, 0, 0, 405.104, 421.096, 0, 0, 0, 0, 491.531, 356.83, 0, 0, 0, 0, 466.046, 329.129, 0, 0, 0, 0, 579.065, 262.647 )
 }
@@ -13,12 +18,25 @@ _data = {
 script = ExtResource( 2 )
 
 [node name="Rails" type="TileMap" parent="."]
-position = Vector2( 0, 4 )
+position = Vector2( 0, 5 )
 mode = 1
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 64 )
 format = 1
-tile_data = PoolIntArray( -65528, 4, 0, -65527, 0, 0, -65526, 5, 0, -65525, 6, 0, 8, 1, 0, 9, 6, 0, 10, 1, 0, 11, 6, 0, 65544, 3, 0, 65545, 5, 0, 65546, 3, 0, 65547, 5, 0, 131080, 6, 0, 131081, 1, 0, 131082, 6, 0, 131083, 1, 0, 196616, 6, 0, 196617, 3, 0, 196618, 0, 0, 196619, 2, 0 )
+tile_data = PoolIntArray( 131080, 6, 0, 196616, 6, 0 )
+
+[node name="PathToFollow" type="Path2D" parent="Rails"]
+position = Vector2( 0, -4 )
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Rails/PathToFollow"]
+position = Vector2( 579.065, 262.647 )
+rotation = 0.515823
+rotate = false
+
+[node name="Zug" parent="Rails/PathToFollow/PathFollow2D" instance=ExtResource( 9 )]
+position = Vector2( 20.8654, 36.6838 )
+rotation = -0.481198
 
 [node name="deko" type="TileMap" parent="."]
 mode = 1
@@ -28,13 +46,6 @@ cell_y_sort = true
 format = 1
 
 [node name="Path2D" type="Path2D" parent="deko"]
-curve = SubResource( 1 )
-
-[node name="PathFollow2D" type="PathFollow2D" parent="deko/Path2D"]
-position = Vector2( 579.065, 262.647 )
-rotation = 0.515823
-rotate = false
-
-[node name="Zug" parent="deko/Path2D/PathFollow2D" instance=ExtResource( 9 )]
-position = Vector2( 20.8654, 36.6838 )
-rotation = -0.481198
+position = Vector2( -1.31317, 2.05646 )
+scale = Vector2( 1.00324, 0.995644 )
+curve = SubResource( 3 )
