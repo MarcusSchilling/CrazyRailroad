@@ -1,0 +1,25 @@
+[gd_scene format=2]
+
+[node name="InteractionGUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="."]
+margin_right = 10.0
+margin_bottom = 16.0
+text = "E"
+uppercase = true
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_left = -17.0
+margin_top = 13.0
+margin_right = 26.0
+margin_bottom = 16.0
+value = 50.0
+tint_progress = Color( 0.756863, 0.12549, 0.12549, 1 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -5.0
+margin_top = 13.0
+margin_right = 12.0
+margin_bottom = 18.0
