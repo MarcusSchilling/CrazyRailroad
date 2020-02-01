@@ -12,7 +12,7 @@ position = Vector2( 10, 1 )
 z_as_relative = false
 
 [node name="tool" parent="." instance=ExtResource( 2 )]
-position = Vector2( 788.002, 326.001 )
+position = Vector2( 773.962, 333.167 )
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 389.863, 294.488 )
