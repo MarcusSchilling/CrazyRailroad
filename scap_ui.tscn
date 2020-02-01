@@ -9,3 +9,6 @@ margin_bottom = 95.0
 rect_pivot_offset = Vector2( -1736.67, 60 )
 texture = ExtResource( 1 )
 stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
