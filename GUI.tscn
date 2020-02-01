@@ -4,7 +4,6 @@
 
 [node name="GUI" type="MarginContainer"]
 margin_right = 1024.0
-margin_bottom = 95.0
 size_flags_horizontal = 2
 script = ExtResource( 1 )
 __meta__ = {
@@ -13,6 +12,5 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 1024.0
-margin_bottom = 95.0
 size_flags_horizontal = 3
 alignment = 2

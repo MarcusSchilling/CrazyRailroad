@@ -20,3 +20,6 @@ position = Vector2( 389.863, 294.488 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource( 4 )]
+anchor_right = 1.0
+margin_top = 20.0
+margin_right = -20.0
