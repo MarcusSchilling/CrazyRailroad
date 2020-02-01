@@ -6,7 +6,6 @@ extends KinematicBody2D
 # Member variables
 const MOTION_SPEED = 160 # Pixels/second
 
-
 func _physics_process(_delta):
 	var motion = Vector2()
 	
@@ -34,8 +33,6 @@ func _physics_process(_delta):
 			motion += Vector2(1, -1)
 		elif Input.is_action_pressed("ui_down"):
 			motion += Vector2(1, 1)
-	#elif Input.is_action_pressed("ui_select"):
-		#get_node("/root/main/GUI").addScrap()
 		
 	else:
 		$AnimatedSprite.playing = false
@@ -60,5 +57,4 @@ func _physics_process(_delta):
 	
 		
 	motion = motion.normalized() * MOTION_SPEED
-
 	move_and_slide(motion)
