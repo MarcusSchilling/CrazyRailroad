@@ -31,7 +31,7 @@ custom_constants/separation = 0
 margin_right = 360.0
 margin_bottom = 100.0
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+[node name="Text" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2"]
 margin_right = 360.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 0, 100 )

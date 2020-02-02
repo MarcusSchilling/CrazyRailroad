@@ -63,7 +63,7 @@ func createEndBarrier(k,j):
 	var scene = load("res://EndPoint.tscn")
 	var scene_instance = scene.instance()
 	scene_instance.set_name("end")
-	scene_instance.position = Vector2(map.map_to_world(Vector2(k,j)))
+	scene_instance.position = map.map_to_world(Vector2(k,j))
 	add_child(scene_instance)
 
 func createEnvironment(k, j):
