@@ -1,17 +1,16 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://draw_rails.gd" type="Script" id=1]
-[ext_resource path="res://Zug.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tileset/tiless.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/Kenney/Isometric/tile_N.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Kenney/Isometric/tile_rock_S.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Kenney/Isometric/tile_spawnRound_S.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Kenney/Isometric/tile_treeDouble_E.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Kenney/Isometric/tile_tree_N.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Kenney/Isometric/woodStructure_N.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Kenney/Isometric/woodStructure_high_W.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Kenney/Isometric/weapon_cannon_N.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Kenney/Isometric/weapon_cannon_E.png" type="Texture" id=11]
-[ext_resource path="res://Assets/tiless.tres" type="TileSet" id=12]
+[ext_resource path="res://Zug.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Kenney/Isometric/tile_tree_N.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Kenney/Isometric/woodStructure_high_W.png" type="Texture" id=11]
+[ext_resource path="res://RemoteTransform2D.gd" type="Script" id=13]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -81,7 +80,7 @@ points = PoolVector2Array( 43, 59.5, 63, 46.5, 89, 58.5, 81, 69.5, 65, 73.5, 48,
 } ]
 3/z_index = 0
 4/name = "tile_tree_N.png 4"
-4/texture = ExtResource( 7 )
+4/texture = ExtResource( 10 )
 4/tex_offset = Vector2( 0, -42 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 190, 224, 132, 126 )
@@ -127,7 +126,6 @@ points = PoolVector2Array( 45, 51.5, 56, 44.5, 70, 42.5, 83, 47.5, 84, 54.5, 75,
 } ]
 0/z_index = 0
 1/name = "woodStructure_high_W.png 1"
-1/texture = ExtResource( 9 )
 1/tex_offset = Vector2( 0, -100 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 190, 182, 132, 168 )
@@ -179,19 +177,19 @@ points = PoolVector2Array( 45, 51.5, 56, 44.5, 70, 42.5, 83, 47.5, 84, 54.5, 75,
 script = ExtResource( 1 )
 
 [node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 0, 60 )
 curve = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 rotation = 0.515823
 rotate = false
+cubic_interp = false
 loop = false
 
-[node name="Zug" parent="Path2D/PathFollow2D" instance=ExtResource( 2 )]
-position = Vector2( 0, 0 )
-rotation = -0.532205
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+rotation = -0.516617
+remote_path = NodePath("../../../Zug")
+script = ExtResource( 13 )
 
 [node name="start_envirement" type="TileMap" parent="."]
 mode = 1
@@ -207,11 +205,16 @@ tile_set = SubResource( 10 )
 cell_size = Vector2( 128, 64 )
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( 131080, 2, 0, 131087, 0, 0, 327693, 0, 0, 458759, 0, 0, 458763, 0, 0 )
 
 [node name="Rails" type="TileMap" parent="."]
 mode = 1
-tile_set = ExtResource( 12 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 128, 64 )
 cell_y_sort = true
 format = 1
+
+[node name="Zug" parent="." instance=ExtResource( 9 )]
+position = Vector2( 0, 60 )
+rotation = -0.000793994
+scale = Vector2( 1, 1 )
+script = null

@@ -28,7 +28,7 @@ func _ready():
 	path = get_node("Path2D")
 	curve = path.get_curve()
 	
-	print(curve.get_point_count())		
+	print(curve.get_point_count())
 	path.set_curve(curve)
 	var width =15
 	var height = 12
