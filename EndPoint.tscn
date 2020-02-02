@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/generic-items-160-assets/PNG/White/genericItem_white_020.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 198.831
+radius = 69.0877
 
 [node name="EndPoint" type="Node2D"]
 script = ExtResource( 1 )

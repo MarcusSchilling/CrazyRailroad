@@ -32,14 +32,14 @@ func _ready():
 	path.set_curve(curve)
 	var width =15
 	var height = 12
-	var n_tiles = 100
+	var n_tiles = 15
 	var last_tile = Rail.forward
 	for s in range(n_tiles):
 		curve = path.get_curve()
 		curve.add_point(map.map_to_world(Vector2(k,j)))
 		map.set_cell(k,j,last_tile)	  
 		createEnvironment(k,j)
-		if (s == n_tiles):
+		if (s == n_tiles-1):
 			createEndBarrier(k,j)		
 		if (last_tile == Rail.forward):
 			j = j - 1
@@ -60,8 +60,11 @@ func _ready():
  # Replace with function body.
 
 func createEndBarrier(k,j):
-	get_node("")
-	
+	var scene = load("res://EndPoint.tscn")
+	var scene_instance = scene.instance()
+	scene_instance.set_name("end")
+	scene_instance.position = Vector2(map.map_to_world(Vector2(k,j)))
+	add_child(scene_instance)
 
 func createEnvironment(k, j):
 	for i in range(20):

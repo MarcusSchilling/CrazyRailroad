@@ -6,7 +6,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    pass # Replace with function body.
+	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -14,8 +14,8 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-    if body.get_name() == "Zug":
-        var endMenue = load("res://EndMenue.tscn")
-        get_tree().get_root().add_child(endMenue.instance())
-        get_node("/root/main").queue_free()
+	if body.get_name() == "Zug":
+		var endMenue = load("res://EndMenue.tscn")
+		get_tree().get_root().add_child(endMenue.instance())
+		get_node("/root/main").queue_free()
 
