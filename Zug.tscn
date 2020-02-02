@@ -1,36 +1,35 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Assets/Kenney/Modell/Isometric/ship_dark_E.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Kenney/Modell/Isometric/ship_dark_N.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_005.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_012.png" type="Texture" id=2]
 [ext_resource path="res://Zug.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Kenney/Modell/Isometric/ship_dark_SW.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Kenney/Modell/Isometric/ship_dark_S.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Kenney/Modell/Isometric/ship_dark_W.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Kenney/Modell/Isometric/ship_dark_SE.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Kenney/Modell/Isometric/ship_dark_NW.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Kenney/Modell/Isometric/ship_dark_NE.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_011.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_015.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_010.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_009.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_006.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_004.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 41.2192
+radius = 44.8111
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[node name="RigidBody2D" type="KinematicBody2D"]
-position = Vector2( -0.630249, 0 )
+[node name="RigidBody2D" type="StaticBody2D"]
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.90979, 9.9716 )
+position = Vector2( 1.42316, -37.2561 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -0.116886, 0.47662 )
-scale = Vector2( 0.1, 0.1 )
+position = Vector2( -0.11689, -37.2542 )
+scale = Vector2( 2.3522, 2.32128 )
 frames = SubResource( 2 )
-frame = 5
+frame = 2
