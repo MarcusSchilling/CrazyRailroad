@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Obstacle.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Kenney/Items/genericItem_color_050.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Kenney/Isometric/detail_dirtLarge_E.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Kenney/Message/emote_exclamation.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Kenney/Message/emote_question.png" type="Texture" id=4]
 
@@ -24,8 +24,8 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -0.598737, 3.8147e-06 )
-scale = Vector2( 0.606424, 0.515727 )
+position = Vector2( 2.39496, -26.9432 )
+scale = Vector2( 0.89176, 0.782352 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
