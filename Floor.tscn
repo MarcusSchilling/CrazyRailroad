@@ -179,6 +179,7 @@ points = PoolVector2Array( 45, 51.5, 56, 44.5, 70, 42.5, 83, 47.5, 84, 54.5, 75,
 script = ExtResource( 2 )
 
 [node name="Path2D" type="Path2D" parent="."]
+z_index = 5
 curve = SubResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -194,6 +195,7 @@ position = Vector2( 0, 0 )
 rotation = -0.532205
 
 [node name="start_envirement" type="TileMap" parent="."]
+z_index = -1
 mode = 1
 tile_set = SubResource( 5 )
 cell_size = Vector2( 128, 64 )
