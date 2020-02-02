@@ -195,6 +195,7 @@ position = Vector2( 0, 0 )
 rotation = -0.532205
 
 [node name="start_envirement" type="TileMap" parent="."]
+z_index = -1
 mode = 1
 tile_set = SubResource( 5 )
 cell_size = Vector2( 128, 64 )
