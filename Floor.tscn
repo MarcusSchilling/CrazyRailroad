@@ -243,7 +243,7 @@ cell_size = Vector2( 128, 64 )
 cell_y_sort = true
 format = 1
 
-[node name="Zug" type="StaticBody2D" parent="." instance=ExtResource( 9 )]
+[node name="Zug" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0, 60 )
 rotation = -0.000793994
 scale = Vector2( 1, 1 )
