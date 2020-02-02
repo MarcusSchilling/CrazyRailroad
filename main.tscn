@@ -16,12 +16,14 @@ position = Vector2( 10, 1 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Floor" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( -48.3967, -52.9748 )
 
 [node name="Obstacle" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 457.133, 238.982 )
 
 [node name="player" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 331.947, 313.732 )
+position = Vector2( 265.892, 319.618 )
+z_index = 100
 
 [node name="tool" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 773.962, 333.167 )
