@@ -27,6 +27,7 @@ func _ready():
 	# ladri = numero de tiles diferentes do tile set
 	path = get_node("Path2D")
 	curve = path.get_curve()
+	curve.clear_points()
 	
 	print(curve.get_point_count())
 	path.set_curve(curve)
