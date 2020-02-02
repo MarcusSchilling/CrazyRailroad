@@ -1,25 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Kenney/Items/genericItem_color_086.png" type="Texture" id=1]
 [ext_resource path="res://End.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 50.0337
+radius = 19.3974
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="Area2D"]
-position = Vector2( -0.583202, 2.05052 )
-rotation = 0.00872665
-scale = Vector2( 1.87431, 1.72499 )
-texture = ExtResource( 1 )
-flip_h = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -2.05054, 0 )
+position = Vector2( 0.282163, -3.49905 )
 shape = SubResource( 1 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
