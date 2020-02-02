@@ -32,7 +32,7 @@ func _ready():
 	path.set_curve(curve)
 	var width =15
 	var height = 12
-	var n_tiles = 15
+	var n_tiles = 25
 	var last_tile = Rail.forward
 	for s in range(n_tiles):
 		curve = path.get_curve()
@@ -41,6 +41,8 @@ func _ready():
 		createEnvironment(k,j)
 		if (s == n_tiles-1):
 			createEndBarrier(k,j)		
+		if (s % 20 == 0 && s != 0 && s != n_tiles -1):
+			createBarrier(k,j)
 		if (last_tile == Rail.forward):
 			j = j - 1
 		elif(last_tile == Rail.left_forward || last_tile == Rail.right_forward):
@@ -56,14 +58,29 @@ func _ready():
 		last_tile = nextTile(last_tile)
 	pass	
 	
-	
+var k_new
+var j_new
  # Replace with function body.
+func createBarrier(k,j):
+	var scene = load("res://Obstacle.tscn")
+	var scene_instance = scene.instance()
+	scene_instance.set_name("end")
+	scene_instance.position = Vector2(map.map_to_world(Vector2(k,j)))
+	add_child(scene_instance)
+	for i in range(1):
+		var tools = load("res://tools.tscn")
+		var tools_scene = tools.instance()
+		k_new = k + (20 - randi() % 40)
+		j_new = j + (randi() % 10)
+		tools_scene.position = Vector2(map.map_to_world(Vector2(k_new,j_new)))
+		
+		add_child(tools_scene)
 
 func createEndBarrier(k,j):
 	var scene = load("res://EndPoint.tscn")
 	var scene_instance = scene.instance()
 	scene_instance.set_name("end")
-	scene_instance.position = Vector2(map.map_to_world(Vector2(k,j)))
+	scene_instance.position = map.map_to_world(Vector2(k,j))
 	add_child(scene_instance)
 
 func createEnvironment(k, j):

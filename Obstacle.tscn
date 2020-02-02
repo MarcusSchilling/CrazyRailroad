@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Obstacle.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Kenney/Items/genericItem_color_050.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Kenney/Message/emote_question.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Kenney/Message/emote_exclamation.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Kenney/Message/emote_exclamation.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Kenney/Message/emote_question.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 47.3374
@@ -24,7 +24,7 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -0.598737, 3.8147e-06 )
+position = Vector2( -0.598737, 3.8147e-006 )
 scale = Vector2( 0.606424, 0.515727 )
 texture = ExtResource( 2 )
 
@@ -36,11 +36,11 @@ shape = SubResource( 2 )
 [node name="Sprite_!" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0, -82 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 
-[node name="Sprite_\?" type="Sprite" parent="."]
+[node name="Sprite_?" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0, -82 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
