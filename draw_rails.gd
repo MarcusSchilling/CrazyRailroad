@@ -28,18 +28,19 @@ func _ready():
 	path = get_node("Path2D")
 	curve = path.get_curve()
 	
-	print(curve.get_point_count())		
+	print(curve.get_point_count())
 	path.set_curve(curve)
 	var width =15
 	var height = 12
-	var n_tiles = 100
+	var n_tiles = 15
 	var last_tile = Rail.forward
 	for s in range(n_tiles):
-		print(Rail.keys()[last_tile])
 		curve = path.get_curve()
 		curve.add_point(map.map_to_world(Vector2(k,j)))
 		map.set_cell(k,j,last_tile)	  
-		createEnvironment(k,j)		
+		createEnvironment(k,j)
+		if (s == n_tiles-1):
+			createEndBarrier(k,j)		
 		if (last_tile == Rail.forward):
 			j = j - 1
 		elif(last_tile == Rail.left_forward || last_tile == Rail.right_forward):
@@ -55,10 +56,17 @@ func _ready():
 		last_tile = nextTile(last_tile)
 	pass	
 	
+	
  # Replace with function body.
 
+func createEndBarrier(k,j):
+	var scene = load("res://EndPoint.tscn")
+	var scene_instance = scene.instance()
+	scene_instance.set_name("end")
+	scene_instance.position = Vector2(map.map_to_world(Vector2(k,j)))
+	add_child(scene_instance)
+
 func createEnvironment(k, j):
-	print("Hallo")
 	for i in range(20):
 		if(map.get_cell(k+i,j) == -1):
 			map.set_cell(k + i, j, 6)
