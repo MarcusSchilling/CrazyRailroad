@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Obstacle.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Kenney/Isometric/detail_dirtLarge_E.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Kenney/Message/emote_exclamation.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Kenney/Message/emote_question.png" type="Texture" id=4]
+[ext_resource path="res://Assets/uipack_fixed/PNG/grey_button00.png" type="Texture" id=5]
+[ext_resource path="res://hitzone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Crosshair/crosshair184.png" type="Texture" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 47.3374
@@ -13,8 +16,22 @@ height = 32.3318
 radius = 17.4005
 height = 53.9873
 
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -69.7997, -0.368622, 0, 0, 0, 0, 89.3041, -0.816452 )
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -89.274, -100.547, 0, 0, 0, 0, 88.3593, -100.353 )
+}
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 13.8269
+
 [node name="Obstacle" type="StaticBody2D"]
 script = ExtResource( 1 )
+Hitzone = ExtResource( 6 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -33,15 +50,55 @@ position = Vector2( -1.19746, 17.9621 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
-[node name="Sprite_!" type="Sprite" parent="."]
+[node name="Sprite_bar" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -100 )
+scale = Vector2( 0.995928, 0.432561 )
+texture = ExtResource( 5 )
+
+[node name="Hitzone_spawn" type="Path2D" parent="Sprite_bar"]
+curve = SubResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Sprite_bar/Hitzone_spawn"]
+position = Vector2( -69.7997, -0.368622 )
+rotation = -0.0028147
+
+[node name="Crosshair_rail" type="Path2D" parent="."]
+visible = false
+curve = SubResource( 6 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Crosshair_rail"]
+position = Vector2( -89.274, -100.547 )
+rotation = 0.00108752
+
+[node name="Crosshair" type="Sprite" parent="Crosshair_rail/PathFollow2D"]
+rotation = -1.23936e-08
+scale = Vector2( 0.26301, 0.258553 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Crosshair" type="Area2D" parent="Crosshair_rail/PathFollow2D/Crosshair"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crosshair_rail/PathFollow2D/Crosshair/Crosshair"]
+shape = SubResource( 4 )
+
+[node name="Sprite_E" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0, -82 )
 texture = ExtResource( 3 )
 
-[node name="Sprite_\?" type="Sprite" parent="."]
+[node name="Sprite_Q" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0, -82 )
 texture = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="area_entered" from="Crosshair_rail/PathFollow2D/Crosshair/Crosshair" to="." method="_on_Crosshair_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

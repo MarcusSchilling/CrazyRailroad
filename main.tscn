@@ -21,3 +21,6 @@ position = Vector2( 331.947, 313.732 )
 
 [node name="tool" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 278.262, 321.503 )
+
+[node name="tool2" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 400.146, 321.503 )
