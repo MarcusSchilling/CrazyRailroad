@@ -28,12 +28,14 @@ func _ready():
 	path = get_node("Path2D")
 	curve = path.get_curve()
 	
+	print(curve.get_point_count())		
 	path.set_curve(curve)
 	var width =15
 	var height = 12
 	var n_tiles = 100
 	var last_tile = Rail.forward
 	for s in range(n_tiles):
+		print(Rail.keys()[last_tile])
 		curve = path.get_curve()
 		curve.add_point(map.map_to_world(Vector2(k,j)))
 		map.set_cell(k,j,last_tile)	  
@@ -56,6 +58,7 @@ func _ready():
  # Replace with function body.
 
 func createEnvironment(k, j):
+	print("Hallo")
 	for i in range(20):
 		if(map.get_cell(k+i,j) == -1):
 			map.set_cell(k + i, j, 6)

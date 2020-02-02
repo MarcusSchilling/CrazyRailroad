@@ -8,7 +8,6 @@ signal hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	connect("hit", self, "_on_hit")
 	pass # Replace with function body.
 
 
