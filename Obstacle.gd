@@ -15,7 +15,9 @@ func _ready():
 var inArea = false
 func _on_Area2D_body_entered(body):
     var inventory = get_node("/root/main/CanvasLayer/GUI")
+    print("HERE")
     if body.get_name() == "Zug":
+        print("YES")
         var endMenue = load("res://EndMenue.tscn")
         var instance = endMenue.instance()
         instance.setText("You failed.")
