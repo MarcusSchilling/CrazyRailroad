@@ -67,7 +67,7 @@ func createBarrier(k,j):
 	var scene = load("res://Obstacle.tscn")
 	var scene_instance = scene.instance()
 	scene_instance.set_name("end")
-	scene_instance.position = Vector2(map.map_to_world(Vector2(k,j)) + Vector2(0,5))
+	scene_instance.position = map.map_to_world(Vector2(k,j)) + Vector2(0,5)
 	add_child(scene_instance)
 
 	for i in range(1):
@@ -75,7 +75,7 @@ func createBarrier(k,j):
 		var tools_scene = tools.instance()
 		k_new = k + (20 - randi() % 40)
 		j_new = j + (randi() % 10)
-		tools_scene.position = Vector2(map.map_to_world(Vector2(k_new,j_new)) + Vector2(0,5))
+		tools_scene.position = map.map_to_world(Vector2(k_new,j_new)) + Vector2(0,5)
 		
 		add_child(tools_scene)
 
