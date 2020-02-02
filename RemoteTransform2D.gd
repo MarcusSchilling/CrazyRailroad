@@ -16,7 +16,6 @@ func _process(delta):
 	#print(str(global_position.x) + " " + str(global_position.y))
 	motion = Vector2(global_position.x - old.x, global_position.y - old.y)
 	old = Vector2(global_position.x, global_position.y)
-	print(str(motion.x) + " " + str(motion.y))
 	get_node("/root/main/YSort/Floor/Zug").animation(motion)
 	
 	

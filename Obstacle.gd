@@ -13,24 +13,6 @@ func _ready():
 #    pass
 
 var inArea = false
-func _on_Area2D_body_entered(body):
-	var inventory = get_node("/root/main/CanvasLayer/GUI")
-	print("HERE")
-	if body.get_name() == "Zug":
-		print("YES")
-		var endMenue = load("res://EndMenue.tscn")
-		var instance = endMenue.instance()
-		instance.setText("You failed.")
-		get_tree().get_root().add_child(instance)
-		get_node("/root/main").queue_free()
-	if body.get_name() == "player":
-		if (inventory.canRepair()):
-			get_node("Sprite_?").visible = true
-		else:
-			get_node("Sprite_!").visible = true
-		inArea = true
-	pass # Replace with function body.
-
 
 func _on_Area2D_body_exited(body):
 	if body.get_name() == "player":
@@ -49,3 +31,25 @@ func _input(ev):
 			get_node("Sprite_?").visible = false
 			
 		#code
+
+
+func _on_Area2D_area_entered(area):
+	if area.get_name() == "Zug":
+		print("YES")
+		var endMenue = load("res://EndMenue.tscn")
+		var instance = endMenue.instance()
+		instance.setText("You failed.")
+		get_tree().get_root().add_child(instance)
+		get_node("/root/main").queue_free()
+
+
+
+func _on_Area2D_body_entered(body):
+	var inventory = get_node("/root/main/CanvasLayer/GUI")
+	if body.get_name() == "player":
+		if (inventory.canRepair()):
+			get_node("Sprite_?").visible = true
+		else:
+			get_node("Sprite_!").visible = true
+		inArea = true
+	pass

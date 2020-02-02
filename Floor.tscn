@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://draw_rails.gd" type="Script" id=1]
 [ext_resource path="res://Tileset/tiless.tres" type="TileSet" id=2]
@@ -173,6 +173,36 @@ points = PoolVector2Array( 45, 51.5, 56, 44.5, 70, 42.5, 83, 47.5, 84, 54.5, 75,
 } ]
 3/z_index = 0
 
+[sub_resource type="GDScript" id=11]
+script/source = "extends StaticBody2D
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+func animation(motion):
+	if motion.y > 0 and motion.x > 0:
+		$AnimatedSprite.frame = 2
+	elif motion.y > 0 and motion.x < 0:
+		$AnimatedSprite.frame = 4
+	elif motion.y < 0 and motion.x > 0:
+		$AnimatedSprite.frame = 0
+	elif motion.y < 0 and motion.x < 0:
+		$AnimatedSprite.frame = 6
+	elif motion.x > 0:
+		$AnimatedSprite.frame = 1
+	elif motion.x < 0:
+		$AnimatedSprite.frame = 5
+	elif motion.y > 0:
+		$AnimatedSprite.frame = 3
+	elif motion.y < 0:
+		$AnimatedSprite.frame = 7
+"
+
 [node name="YSort" type="YSort"]
 script = ExtResource( 1 )
 
@@ -213,7 +243,8 @@ cell_size = Vector2( 128, 64 )
 cell_y_sort = true
 format = 1
 
-[node name="Zug" parent="." instance=ExtResource( 9 )]
+[node name="Zug" type="StaticBody2D" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0, 60 )
 rotation = -0.000793994
 scale = Vector2( 1, 1 )
+script = SubResource( 11 )

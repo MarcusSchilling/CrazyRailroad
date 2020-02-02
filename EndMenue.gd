@@ -14,8 +14,8 @@ func _ready():
 #    pass
 
 func setText(text):
-    get_node("CenterContainer/VBoxContainer/CenterContainer2/Text").set_text(text)
-    pass
+	get_node("CenterContainer/VBoxContainer/CenterContainer2/Text").set_text(text)
+	pass
 
 func _on_TextureButton_pressed():
 	get_tree().get_root().add_child(main.instance())
