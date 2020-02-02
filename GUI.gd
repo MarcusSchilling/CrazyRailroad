@@ -13,9 +13,11 @@ func addScrap():
 	scraps.push_back(true);
 	get_node("HBoxContainer").add_child(ScrapUI.instance());
 	
+func canRepair():
+	return howManyLeft() <= 0
 
 func howManyLeft():
-	return 5 - scraps.size()
+	return 1 - scraps.size()
 
 func repair():
 	scraps.clear()
