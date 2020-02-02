@@ -20,10 +20,10 @@ func howManyLeft():
 	return 1 - scraps.size()
 
 func repair():
-    scraps.clear()
-    delete_children(get_node("HBoxContainer"))
-    
+	scraps.clear()
+	delete_children(get_node("HBoxContainer"))
+	
 func delete_children(node):
-    for n in node.get_children():
-        node.remove_child(n)
-        n.queue_free()
+	for n in node.get_children():
+		node.remove_child(n)
+		n.queue_free()

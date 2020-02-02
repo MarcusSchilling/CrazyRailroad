@@ -6,8 +6,8 @@
 [ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_015.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_010.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_009.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_004.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_005.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_006.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Kenney/Vehicle/Civilian/Blue/Truck 1/carBlue6_004.png" type="Texture" id=9]
 
 [sub_resource type="GDScript" id=3]
 script/source = "extends StaticBody2D
@@ -44,7 +44,7 @@ radius = 44.8111
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
