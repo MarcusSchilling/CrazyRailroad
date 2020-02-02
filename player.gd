@@ -12,32 +12,32 @@ func _physics_process(_delta):
 	var slow = false
 	if Input.is_action_pressed("ui_up"):
 		if Input.is_action_pressed("ui_left"):
-			motion = Vector2(-1, -1)
+			motion = Vector2(-0.707, -0.707)
 		elif Input.is_action_pressed("ui_right"):
-			motion = Vector2(1, -1)
+			motion = Vector2(0.707, -0.707)
 		else:
 			motion = Vector2(0, -1)
 			slow = true;
 	elif Input.is_action_pressed("ui_down"):
 		if Input.is_action_pressed("ui_left"):
-			motion = Vector2(-1, 1)
+			motion = Vector2(-0.707, 0.707)
 		elif Input.is_action_pressed("ui_right"):
-			motion = Vector2(1, 1)
+			motion = Vector2(0.707, 0.707)
 		else:
 			motion = Vector2(0,1)   
 			slow = true 
 	elif Input.is_action_pressed("ui_left"):
 		if Input.is_action_pressed("ui_up"):
-			motion = Vector2(-1, -1)
+			motion = Vector2(-0.707, -0.707)
 		elif Input.is_action_pressed("ui_down"):
-			motion = Vector2(-1, 1)
+			motion = Vector2(-0.707, 0.707)
 		else:
 			motion = Vector2(-1,0)  
 	elif Input.is_action_pressed("ui_right"):
 		if Input.is_action_pressed("ui_up"):
-			motion = Vector2(1, -1)
+			motion = Vector2(0.707, -0.707)
 		elif Input.is_action_pressed("ui_down"):
-			motion = Vector2(1, 1)
+			motion = Vector2(0.707, 0.707)
 		else:
 			motion = Vector2(1,0)
 		
@@ -62,11 +62,6 @@ func _physics_process(_delta):
 	elif motion.y < 0:
 		$AnimatedSprite.play("Player_N")
 	
-	var speed
-	if slow:
-		speed = MOTION_SPEED / 2;
-	else:
-		speed = MOTION_SPEED    
-	motion = ((motion * Vector2(1,0.5)).normalized()).normalized() * speed
+	motion = ((motion * Vector2(1,0.5))) * MOTION_SPEED
 
 	move_and_slide(motion)
