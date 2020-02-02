@@ -41,7 +41,7 @@ func _ready():
 		map.set_cell(k,j,last_tile)	  
 		createEnvironment(k,j)
 		if (s == n_tiles-1):
-			createEndBarrier(k,j)		
+			createEndBarrier(k,j)	
 		if (s % 20 == 0 && s != 0 && s != n_tiles -1):
 			createBarrier(k,j)
 		if (last_tile == Rail.forward):
@@ -58,6 +58,7 @@ func _ready():
 			print("fail")
 		last_tile = nextTile(last_tile)
 	pass	
+	
 	
 var k_new
 var j_new
@@ -83,13 +84,19 @@ func createEndBarrier(k,j):
 	scene_instance.set_name("end")
 	scene_instance.position = map.map_to_world(Vector2(k,j))
 	add_child(scene_instance)
+	for i in range(20):
+		map.set_cell(k + i, j,8)
+		map.set_cell(k - i, j,8)
+		
 
 func createEnvironment(k, j):
-	for i in range(20):
+	for i in range(20):			
 		if(map.get_cell(k+i,j) == -1):
 			map.set_cell(k + i, j, 6)
 		if(map.get_cell(k-i,j) == -1):
 			map.set_cell(k - i,j,6)
+	map.set_cell(k+20,j,8)
+	map.set_cell(k-20,j,8)
 var direction
 func nextTile(tile):
 	match tile:

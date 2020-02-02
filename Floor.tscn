@@ -237,6 +237,7 @@ cell_y_sort = true
 format = 1
 
 [node name="Rails" type="TileMap" parent="."]
+position = Vector2( 0, 1 )
 mode = 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 128, 64 )
