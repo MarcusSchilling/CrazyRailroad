@@ -12,7 +12,7 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	if body.get_parent().get_name() == "player":
+	if body.get_name() == "player":
 		get_node("/root/main/CanvasLayer/GUI").addScrap()
 		get_parent().queue_free()
 	

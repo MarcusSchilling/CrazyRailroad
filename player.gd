@@ -4,7 +4,7 @@ extends KinematicBody2D
 # move_and_slide works.
 
 # Member variables
-const MOTION_SPEED = 160 # Pixels/second
+const MOTION_SPEED = 320 # Pixels/second
 
 func _physics_process(_delta):
 	var motion = Vector2()
@@ -39,9 +39,7 @@ func _physics_process(_delta):
 		elif Input.is_action_pressed("ui_down"):
 			motion = Vector2(1, 1)
 		else:
-			motion = Vector2(1,0)  
-	#elif Input.is_action_pressed("ui_select"):
-		#get_node("/root/main/GUI").addScrap()
+			motion = Vector2(1,0)
 		
 	else:
 		$AnimatedSprite.playing = false
@@ -69,6 +67,6 @@ func _physics_process(_delta):
 		speed = MOTION_SPEED / 2;
 	else:
 		speed = MOTION_SPEED    
-	motion = ((motion * Vector2(1,0.6)).normalized()).normalized() * speed
+	motion = ((motion * Vector2(1,0.5)).normalized()).normalized() * speed
 
 	move_and_slide(motion)

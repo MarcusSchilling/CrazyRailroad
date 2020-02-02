@@ -71,9 +71,9 @@
 5/z_index = 0
 6/name = "tile_E.png 6"
 6/texture = ExtResource( 3 )
-6/tex_offset = Vector2( 1, -10 )
+6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
-6/region = Rect2( 192, 256, 128, 96 )
+6/region = Rect2( 190, 266, 132, 84 )
 6/tile_mode = 0
 6/occluder_offset = Vector2( 0, 0 )
 6/navigation_offset = Vector2( 0, 0 )

@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/Kenney/Modell/Isometric/ship_dark_NE.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 37.1671
+radius = 41.2192
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -21,21 +21,16 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Zug" type="Node2D"]
+[node name="RigidBody2D" type="KinematicBody2D"]
+position = Vector2( -0.630249, 0 )
 script = ExtResource( 3 )
 
-[node name="RigidBody2D" type="KinematicBody2D" parent="."]
-position = Vector2( -0.630249, 0 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 0.396439, -38.2828 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.90979, 9.9716 )
 shape = SubResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="RigidBody2D"]
-position = Vector2( 2.44981, -49.8311 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.116886, 0.47662 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 2 )
 frame = 5
