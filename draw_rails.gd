@@ -1,6 +1,7 @@
 extends Node
 
 var map
+var start_environment_map
 var tiless
 # Declare member variables here. Examples:
 # var a = 2
@@ -19,12 +20,13 @@ var j = 0
 var path
 var curve
 var places_for_items = {}
-var one_direction_distance = 10
+var one_direction_distance = 15
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	map= get_node("Rails")
+	start_environment_map = get_node("start_envirement")
 	# largura e altura em tiles 
 	# ladri = numero de tiles diferentes do tile set
 	path = get_node("Path2D")
@@ -70,7 +72,7 @@ func _ready():
 		last_tile = nextTile(last_tile)
 	pass	
 	createItems(number_of_barriers + 5)
-	
+
 var j_old = 0
  # Replace with function body.
 func createBarrier(k,j):
@@ -112,9 +114,11 @@ func createEnvironment(k, j):
 			else:
 				end = k.x + (j*i)
 			map.set_cell(k.x + (j*i), k.y, 6)
+			if (map.get_cell(k.x+(j*i),k.y +1) == -1 && start_environment_map.get_cell(k.x+(j*i),k.y+1) == -1):
+				map.set_cell(k.x+(j*i), k.y + 1,8)
 		#builds border for the last row that is close to this if the current grass exceeds the last
 		if(map.get_cell(k.x+(j*i),k.y+1) == -1 && k.y != 0):
-			map.set_cell(k.x+(j*i),k.y+1,8)
+			start_environment_map.set_cell(k.x+(j*i),k.y+1,8)
 	
 	#places for items
 	var vec = Vector2(min(start,end), max(start,end))
