@@ -19,7 +19,7 @@ var j = 0
 var path
 var curve
 var places_for_items = {}
-var one_direction_distance = 4
+var one_direction_distance = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -126,9 +126,13 @@ func createEnvironment(k, j):
 	if(map.get_cell(k.x+ (j*one_direction_distance),k.y+1) == -1):
 		map.set_cell(k.x + (j*one_direction_distance),k.y +1, 8)
 	var i = 0
-	while(map.get_cell(k.x+(j*(one_direction_distance+i)),k.y+1) == 6):
+	while(map.get_cell(k.x+(j*(one_direction_distance+i)),k.y+1) != 8):
 		map.set_cell(k.x+(j*(one_direction_distance+i)),k.y, 8)
 		i=i+1
+	i = 1
+	while(map.get_cell(k.x+i,k.y) == Rail.left_right && map.get_cell(k.x+i,k.y+1) == -1):
+		map.set_cell(k.x+i,k.y+1, 8)
+		i = i+1
 var direction
 func nextTile(tile):
 	match tile:
