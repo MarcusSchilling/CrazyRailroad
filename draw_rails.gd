@@ -20,7 +20,8 @@ var j = 0
 var path
 var curve
 var places_for_items = {}
-var one_direction_distance = 15
+#minimum 13 because otherwise the field is not fully surrounded by a fence
+var one_direction_distance = 13
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -84,7 +85,6 @@ func createBarrier(k,j):
 	
 func createItems(number_of_items):
 	for i in range(0, number_of_items):
-		print("item")
 		var tools = load("res://tools.tscn")
 		var tools_scene = tools.instance()
 		j_old = 0
@@ -103,6 +103,11 @@ func createEndBarrier(k,j):
 	scene_instance.set_name("end")
 	scene_instance.position = map.map_to_world(Vector2(k,j))
 	add_child(scene_instance)
+	createEnvironment(Vector2(k,j), -1)
+	createEnvironment(Vector2(k,j), +1)
+	for i in range(0,one_direction_distance):
+		map.set_cell(k+i,j-1,8)
+		map.set_cell(k-i,j-1,8)		
 
 func createEnvironment(k, j):
 	var start;
@@ -121,6 +126,10 @@ func createEnvironment(k, j):
 			start_environment_map.set_cell(k.x+(j*i),k.y+1,8)
 	
 	#places for items
+	if start ==null:
+		start = k.x
+	if end == null:
+		end = k.x
 	var vec = Vector2(min(start,end), max(start,end))
 	var a = places_for_items.get(k.y, Vector2(start,end))
 	places_for_items[k.y] = Vector2(min(a.x,vec.x),max(a.y,vec.y))
